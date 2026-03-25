@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>EduSpace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <aside class="sidebar">
+    <h2>EduSpace</h2>
+    <ul>
+      <li class="active"><ion-icon name="home-outline"></ion-icon> Home</li>
+      <li><ion-icon name="library-outline"></ion-icon> Materiais</li>
+      <li><ion-icon name="book-outline"></ion-icon> Notas</li>
+      <li><ion-icon name="clipboard-outline"></ion-icon> Tarefas</li>
+      <li><ion-icon name="bar-chart-outline"></ion-icon> Boletim</li>
+      <li><ion-icon name="calendar-outline"></ion-icon> Agenda</li>
+    </ul>
+  </aside>
+
+<main class="main">
+
+<!-- MENU DINÂMICO -->
+<section id="content">
+
+  <!-- HOME -->
+  <div class="panel active" id="home">
+    <div class="home-header">
+      <h1>Bem-vindo de volta, Jorge</h1>
+      <p class="home-date" id="home-date">Terça-feira, 25 de março de 2026</p>
+    </div>
+
+    <!-- CARDS DASHBOARD -->
+    <div class="dashboard-grid">
+      <!-- MENSAGENS -->
+      <div class="dashboard-card card-mensagens" id="card-mensagens">
+        <div class="card-icon">
+          <ion-icon name="mail"></ion-icon>
+        </div>
+        <div class="card-content">
+          <h3>Mensagens</h3>
+          <div class="card-number" id="msg-count">13</div>
+          <p class="card-subtitle">não lidas</p>
+          <div class="card-indicator" style="background: rgba(59, 130, 246, 0.5);"></div>
+        </div>
+        <div class="card-hover-effect"></div>
+      </div>
+
+      <!-- FALTAS -->
+      <div class="dashboard-card card-faltas" id="card-faltas">
+        <div class="card-icon">
+          <ion-icon name="alert-circle"></ion-icon>
+        </div>
+        <div class="card-content">
+          <h3>Faltas</h3>
+          <div class="card-number" id="faltas-count">5</div>
+          <p class="card-subtitle">este mês</p>
+          <div class="card-indicator warning" style="background: rgba(249, 115, 22, 0.5);"></div>
+        </div>
+        <div class="card-hover-effect"></div>
+      </div>
+
+      <!-- TAREFAS -->
+      <div class="dashboard-card card-tarefas" id="card-tarefas">
+        <div class="card-icon">
+          <ion-icon name="clipboard"></ion-icon>
+        </div>
+        <div class="card-content">
+          <h3>Tarefas</h3>
+          <div class="card-number" id="tarefas-count">4</div>
+          <p class="card-subtitle">pendentes</p>
+          <div class="card-indicator" style="background: rgba(139, 92, 246, 0.5);"></div>
+        </div>
+        <div class="card-hover-effect"></div>
+      </div>
+
+      <!-- DESEMPENHO -->
+      <div class="dashboard-card card-desempenho" id="card-desempenho">
+        <div class="card-icon">
+          <span id="mood-emoji">🙂</span>
+        </div>
+        <div class="card-content">
+          <h3>Desempenho</h3>
+          <div class="card-number" id="mood-status">Bom</div>
+          <p class="card-subtitle">média: 8.1</p>
+          <div class="card-indicator" style="background: rgba(34, 197, 94, 0.5);"></div>
+        </div>
+        <div class="card-hover-effect"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAIS PARA HOME -->
+  <!-- MODAL MENSAGENS -->
+  <div class="modal" id="modal-mensagens">
+    <div class="modal-overlay" onclick="closeAllModals();"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>
+          <ion-icon name="mail"></ion-icon> Mensagens
+        </h2>
+        <button class="modal-close" onclick="closeAllModals();">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mensagens-list">
+          <div class="mensagem-item" onclick="expandirMensagem(this)">
+            <div class="mensagem-avatar">
+              <span>PP</span>
+            </div>
+            <div class="mensagem-info">
+              <h4>Prof. Paula</h4>
+              <p class="mensagem-assunto">Sobre a prova de amanhã</p>
+              <p class="mensagem-preview">A prova será sobre os capítulos 1-3...</p>
+              <span class="mensagem-data">Hoje 14:30</span>
+            </div>
+          </div>
+          <div class="mensagem-item" onclick="expandirMensagem(this)">
+            <div class="mensagem-avatar">
+              <span>DC</span>
+            </div>
+            <div class="mensagem-info">
+              <h4>Diretoria</h4>
+              <p class="mensagem-assunto">Aviso importante - Reunião de pais</p>
+              <p class="mensagem-preview">Informamos que a reunião acontecerá...</p>
+              <span class="mensagem-data">Ontem 09:15</span>
+            </div>
+          </div>
+          <div class="mensagem-item" onclick="expandirMensagem(this)">
+            <div class="mensagem-avatar">
+              <span>MC</span>
+            </div>
+            <div class="mensagem-info">
+              <h4>Monitor Carlos</h4>
+              <p class="mensagem-assunto">Dúvidas sobre trigonometria</p>
+              <p class="mensagem-preview">Oi! Vi que você tem dúvidas em...</p>
+              <span class="mensagem-data">18/03</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL FALTAS -->
+  <div class="modal" id="modal-faltas">
+    <div class="modal-overlay" onclick="closeAllModals();"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>
+          <ion-icon name="alert-circle"></ion-icon> Faltas
+        </h2>
+        <button class="modal-close" onclick="closeAllModals();">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="faltas-container">
+          <div class="falta-stats">
+            <div class="stat-item">
+              <span class="stat-label">Presença</span>
+              <div class="stat-bar">
+                <div class="stat-progress" style="width: 92%"></div>
+              </div>
+              <span class="stat-value">92%</span>
+            </div>
+          </div>
+          <div class="faltas-list">
+            <h4>Dias faltados este mês:</h4>
+            <div class="falta-dia">
+              <span class="falta-data">15/03 - Segunda</span>
+              <span class="falta-materia">Matemática</span>
+            </div>
+            <div class="falta-dia">
+              <span class="falta-data">18/03 - Quinta</span>
+              <span class="falta-materia">Educação Física</span>
+            </div>
+            <div class="falta-dia">
+              <span class="falta-data">22/03 - Sexta</span>
+              <span class="falta-materia">Português</span>
+            </div>
+            <div class="falta-dia">
+              <span class="falta-data">24/03 - Domingo</span>
+              <span class="falta-materia">Inglês</span>
+            </div>
+            <div class="falta-dia">
+              <span class="falta-data">25/03 - Segunda</span>
+              <span class="falta-materia">Geografia</span>
+            </div>
+          </div>
+          <div class="falta-aviso">
+            <p><strong>ℹ️ Aviso:</strong> Sua presença está em 92%. Cuidado para não cair abaixo de 75%!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DESEMPENHO -->
+  <div class="modal" id="modal-desempenho">
+    <div class="modal-overlay" onclick="closeAllModals();"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>
+          <ion-icon name="trending-up"></ion-icon> Seu Desempenho
+        </h2>
+        <button class="modal-close" onclick="closeAllModals();">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="desempenho-container">
+          <div class="desempenho-status">
+            <span class="status-emoji">🙂</span>
+            <p class="status-text">Você está indo <strong>bem</strong>!</p>
+            <p class="status-media">Média geral: <strong>8.1</strong></p>
+          </div>
+          <div class="desempenho-disciplinas">
+            <h4>Notas por disciplina:</h4>
+            <div class="disciplina-item">
+              <span class="disc-nome">Matemática</span>
+              <div class="disc-bar">
+                <div class="disc-progress" style="width: 95%; background: #4ade80;"></div>
+              </div>
+              <span class="disc-nota">9.5</span>
+            </div>
+            <div class="disciplina-item">
+              <span class="disc-nome">Português</span>
+              <div class="disc-bar">
+                <div class="disc-progress" style="width: 88%; background: #60a5fa;"></div>
+              </div>
+              <span class="disc-nota">8.8</span>
+            </div>
+            <div class="disciplina-item">
+              <span class="disc-nome">História</span>
+              <div class="disc-bar">
+                <div class="disc-progress" style="width: 90%; background: #f97316;"></div>
+              </div>
+              <span class="disc-nota">9.0</span>
+            </div>
+            <div class="disciplina-item">
+              <span class="disc-nome">Ciências</span>
+              <div class="disc-bar">
+                <div class="disc-progress" style="width: 87%; background: #a855f7;"></div>
+              </div>
+              <span class="disc-nota">8.7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATERIAIS -->
+  <div class="panel" id="materiais">
+    <h2 class="materiais-title">📚 Materiais</h2>
+    <div class="apps">
+      <a href="https://www.alura.com.br" target="_blank" class="app neon"><span>Alura</span><ion-icon name="school-outline"></ion-icon></a>
+      <a href="https://repositorio.educacao.sp.gov.br/midia" class="app neon"><span>Materiais digitais</span><ion-icon name="folder-open-outline"></ion-icon></a>
+      <a href="https://learn.better.efekta.com/gap/ui/home" class="app neon"><span>Speak</span><ion-icon name="chatbubbles-outline"></ion-icon></a>
+      <a href="https://em.elefanteletrado.com.br/library/panel" class="app neon"><span>Leia SP</span><ion-icon name="book-outline"></ion-icon></a>
+      <a href="https://www.matific.com/students/app/7.18.1/" class="app neon"><span>Matfic</span><ion-icon name="calculator-outline"></ion-icon></a>
+    </div>
+  </div>
+
+  <!-- NOTAS -->
+  <div class="panel" id="notas">
+    <h2>📝 Notas</h2>
+    <div class="notes-grid">
+      <article class="note-card" data-progress="94" data-status="good">
+        <h3>Arte</h3>
+        <div class="status good"><span></span> Bom</div>
+        <p>Última avaliação: 9.4</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="89" data-status="good">
+        <h3>Ciências</h3>
+        <div class="status good"><span></span> Bom</div>
+        <p>Última avaliação: 8.7</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="76" data-status="ok">
+        <h3>Educação Financeira</h3>
+        <div class="status ok"><span></span> OK</div>
+        <p>Última avaliação: 7.3</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="92" data-status="good">
+        <h3>Educação Física</h3>
+        <div class="status good"><span></span> Bom</div>
+        <p>Última avaliação: 9.0</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="87" data-status="good">
+        <h3>Geografia</h3>
+        <div class="status good"><span></span> Bom</div>
+        <p>Última avaliação: 8.1</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="90" data-status="good">
+        <h3>História</h3>
+        <div class="status good"><span></span> Bom</div>
+        <p>Última avaliação: 8.8</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="84" data-status="ok">
+        <h3>Língua Inglesa</h3>
+        <div class="status ok"><span></span> OK</div>
+        <p>Última avaliação: 8.3</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="88" data-status="good">
+        <h3>Língua Portuguesa</h3>
+        <div class="status good"><span></span> Bom</div>
+        <p>Última avaliação: 8.5</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="95" data-status="good">
+        <h3>Matemática</h3>
+        <div class="status good"><span></span> Bom</div>
+        <p>Última avaliação: 9.2</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="69" data-status="improve">
+        <h3>Projeto de Vida</h3>
+        <div class="status improve"><span></span> Precisa melhorar</div>
+        <p>Última avaliação: 6.8</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="81" data-status="ok">
+        <h3>Redação e Leitura</h3>
+        <div class="status ok"><span></span> OK</div>
+        <p>Última avaliação: 7.9</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+      <article class="note-card" data-progress="85" data-status="ok">
+        <h3>Tecnologia e Inovação</h3>
+        <div class="status ok"><span></span> OK</div>
+        <p>Última avaliação: 8.2</p>
+        <div class="progress-wrapper"><div class="progress"></div></div>
+      </article>
+    </div>
+  </div>
+
+  <!-- TAREFAS -->
+  <div class="panel" id="tarefas">
+    <h2 class="tarefas-title">📝 Tarefas</h2>
+    
+    <!-- FILTRO POR MATÉRIA -->
+    <div class="filter-container">
+      <label>Filtrar por Matéria:</label>
+      <select id="materia-filter">
+        <option value="">Todas as matérias</option>
+        <option value="matematica">Matemática</option>
+        <option value="portugues">Português</option>
+        <option value="historia">História</option>
+        <option value="ciencias">Ciências</option>
+        <option value="geografia">Geografia</option>
+        <option value="ingles">Inglês</option>
+        <option value="arte">Arte</option>
+        <option value="tecnologia">Tecnologia</option>
+      </select>
+    </div>
+
+    <!-- ABAS DE STATUS -->
+    <div class="task-tabs">
+      <button class="tab-btn active" data-tab="pendentes">
+        <ion-icon name="close-circle-outline"></ion-icon> Pendentes
+      </button>
+      <button class="tab-btn" data-tab="andamento">
+        <ion-icon name="hourglass-outline"></ion-icon> Em Andamento
+      </button>
+      <button class="tab-btn" data-tab="concluidas">
+        <ion-icon name="checkmark-circle-outline"></ion-icon> Concluídas
+      </button>
+    </div>
+
+    <!-- CARDS DE TAREFAS -->
+    <div class="tarefas-container">
+      <!-- PENDENTES -->
+      <div class="tarefas-grid" id="tarefas-pendentes" data-status="pendentes">
+        <div class="task-card" data-materia="matematica" data-id="1">
+          <div class="task-header">
+            <div class="task-status pendente">
+              <ion-icon name="close-circle"></ion-icon> Pendente
+            </div>
+            <div class="task-difficulty dificil">Difícil</div>
+          </div>
+          <h3>Equações do 1º Grau</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Prof. Silva</p>
+          <p class="materia"><span class="materia-tag matematica">Matemática</span></p>
+          <div class="progress-info">
+            <span>Prazo: 30/03/2026</span>
+            <span class="prazo-urgente">⏰ 5 dias restantes</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="task-card" data-materia="portugues" data-id="2">
+          <div class="task-header">
+            <div class="task-status pendente">
+              <ion-icon name="close-circle"></ion-icon> Pendente
+            </div>
+            <div class="task-difficulty medio">Médio</div>
+          </div>
+          <h3>Redação Dissertativa</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Profa. Ramos</p>
+          <p class="materia"><span class="materia-tag portugues">Português</span></p>
+          <div class="progress-info">
+            <span>Prazo: 02/04/2026</span>
+            <span>8 dias restantes</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="task-card" data-materia="historia" data-id="3">
+          <div class="task-header">
+            <div class="task-status pendente">
+              <ion-icon name="close-circle"></ion-icon> Pendente
+            </div>
+            <div class="task-difficulty facil">Fácil</div>
+          </div>
+          <h3>Revisão de Datas Históricas</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Prof. Costa</p>
+          <p class="materia"><span class="materia-tag historia">História</span></p>
+          <div class="progress-info">
+            <span>Prazo: 01/04/2026</span>
+            <span class="prazo-urgente">⏰ 7 dias restantes</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="task-card" data-materia="ciencias" data-id="4">
+          <div class="task-header">
+            <div class="task-status pendente">
+              <ion-icon name="close-circle"></ion-icon> Pendente
+            </div>
+            <div class="task-difficulty dificil">Difícil</div>
+          </div>
+          <h3>Experimento sobre Fotossíntese</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Prof. Oliveira</p>
+          <p class="materia"><span class="materia-tag ciencias">Ciências</span></p>
+          <div class="progress-info">
+            <span>Prazo: 05/04/2026</span>
+            <span>11 dias restantes</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EM ANDAMENTO -->
+      <div class="tarefas-grid" id="tarefas-andamento" data-status="andamento" style="display: none;">
+        <div class="task-card" data-materia="ingles" data-id="5">
+          <div class="task-header">
+            <div class="task-status andamento">
+              <ion-icon name="hourglass"></ion-icon> Em Andamento
+            </div>
+            <div class="task-difficulty medio">Médio</div>
+          </div>
+          <h3>Conversation Practice</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Profa. Lucas</p>
+          <p class="materia"><span class="materia-tag ingles">Inglês</span></p>
+          <div class="progress-info">
+            <span>Prazo: 29/03/2026</span>
+            <span class="prazo-urgente">⏰ 4 dias restantes</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 60%"></div>
+          </div>
+        </div>
+
+        <div class="task-card" data-materia="tecnologia" data-id="6">
+          <div class="task-header">
+            <div class="task-status andamento">
+              <ion-icon name="hourglass"></ion-icon> Em Andamento
+            </div>
+            <div class="task-difficulty facil">Fácil</div>
+          </div>
+          <h3>Projeto de Programação</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Prof. Gomes</p>
+          <p class="materia"><span class="materia-tag tecnologia">Tecnologia</span></p>
+          <div class="progress-info">
+            <span>Prazo: 10/04/2026</span>
+            <span>16 dias restantes</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 45%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONCLUÍDAS -->
+      <div class="tarefas-grid" id="tarefas-concluidas" data-status="concluidas" style="display: none;">
+        <div class="task-card" data-materia="arte" data-id="7">
+          <div class="task-header">
+            <div class="task-status concluida">
+              <ion-icon name="checkmark-circle"></ion-icon> Concluída
+            </div>
+            <div class="task-difficulty facil">Fácil</div>
+          </div>
+          <h3>Criação de Obra de Arte</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Profa. Santos</p>
+          <p class="materia"><span class="materia-tag arte">Arte</span></p>
+          <div class="progress-info">
+            <span>Prazo: 20/03/2026</span>
+            <span class="prazo-passado">✓ Entregue em 19/03</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+        </div>
+
+        <div class="task-card" data-materia="geografia" data-id="8">
+          <div class="task-header">
+            <div class="task-status concluida">
+              <ion-icon name="checkmark-circle"></ion-icon> Concluída
+            </div>
+            <div class="task-difficulty medio">Médio</div>
+          </div>
+          <h3>Mapa Cartográfico</h3>
+          <p class="professor"><ion-icon name="person-outline"></ion-icon> Prof. Ferreira</p>
+          <p class="materia"><span class="materia-tag geografia">Geografia</span></p>
+          <div class="progress-info">
+            <span>Prazo: 22/03/2026</span>
+            <span class="prazo-passado">✓ Entregue em 21/03</span>
+          </div>
+          <div class="task-bar">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL DE DETALHES DE TAREFA (DENTRO DE TAREFAS) -->
+    <div id="tarefa-detalhe" style="display: none;">
+      <div class="detalhe-header">
+        <button id="back-tarefa" class="btn-back">
+          <ion-icon name="arrow-back-outline"></ion-icon> Voltar
+        </button>
+        <h2 id="detalhe-titulo">Título da Tarefa</h2>
+      </div>
+
+      <div class="detalhe-info">
+        <p><strong>Professor:</strong> <span id="detalhe-professor">-</span></p>
+        <p><strong>Matéria:</strong> <span id="detalhe-materia">-</span></p>
+        <p><strong>Prazo:</strong> <span id="detalhe-prazo">-</span></p>
+        <p><strong>Dificuldade:</strong> <span id="detalhe-dificuldade">-</span></p>
+      </div>
+
+      <div class="detalhe-enunciado">
+        <h3>Enunciado</h3>
+        <p id="detalhe-enunciado-texto">Lorem ipsum dolor sit amet...</p>
+      </div>
+
+      <!-- QUESTÕES -->
+      <div class="questoes-container">
+        <!-- MÚLTIPLA ESCOLHA -->
+        <div class="questao" id="questao-multipla">
+          <h4>Questão 1: Múltipla Escolha</h4>
+          <p id="texto-multipla">Qual é a resposta correta?</p>
+          <div class="opcoes-multipla">
+            <button class="opcao" data-opcao="a">A) Opção A</button>
+            <button class="opcao" data-opcao="b">B) Opção B</button>
+            <button class="opcao" data-opcao="c">C) Opção C</button>
+            <button class="opcao" data-opcao="d">D) Opção D</button>
+          </div>
+          <div id="feedback-multipla" class="feedback" style="display: none;"></div>
+        </div>
+
+        <!-- RESPOSTA LIVRE -->
+        <div class="questao" id="questao-livre">
+          <h4>Questão 2: Resposta Livre</h4>
+          <p>Descreva sua resposta com suas próprias palavras:</p>
+          <textarea id="resposta-livre" rows="6" placeholder="Digite sua resposta aqui..."></textarea>
+        </div>
+      </div>
+
+      <div class="detalhe-footer">
+        <div class="progress-envio">
+          <span id="status-envio">Pronto para enviar</span>
+          <div class="progresso-visual">
+            <div id="barra-progresso" class="barra" style="width: 0%"></div>
+          </div>
+        </div>
+        <button id="enviar-tarefa" class="btn-enviar">
+          <ion-icon name="send-outline"></ion-icon> Enviar Resposta
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOLETIM -->
+  <div class="panel" id="boletim">
+    <h2>📊 Boletim</h2>
+
+    <table>
+      <tr>
+        <th>Matéria</th>
+        <th>Nota</th>
+      </tr>
+      <tr>
+        <td>Arte</td>
+        <td>9.4</td>
+      </tr>
+      <tr>
+        <td>Ciências</td>
+        <td>8.7</td>
+      </tr>
+      <tr>
+        <td>Educação Financeira</td>
+        <td>7.3</td>
+      </tr>
+      <tr>
+        <td>Educação Física</td>
+        <td>9.0</td>
+      </tr>
+      <tr>
+        <td>Geografia</td>
+        <td>8.1</td>
+      </tr>
+      <tr>
+        <td>História</td>
+        <td>8.8</td>
+      </tr>
+      <tr>
+        <td>Língua Inglesa</td>
+        <td>8.3</td>
+      </tr>
+      <tr>
+        <td>Língua Portuguesa</td>
+        <td>8.5</td>
+      </tr>
+      <tr>
+        <td>Matemática</td>
+        <td>9.2</td>
+      </tr>
+      <tr>
+        <td>Projeto de Vida</td>
+        <td>6.8</td>
+      </tr>
+      <tr>
+        <td>Redação e Leitura</td>
+        <td>7.9</td>
+      </tr>
+      <tr>
+        <td>Tecnologia e Inovação</td>
+        <td>8.2</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- AGENDA -->
+  <div class="panel" id="agenda">
+    <h2>📅 Agenda</h2>
+    <ul>
+      <li>📌 Prova - 30/03</li>
+      <li>📌 Trabalho - 05/04</li>
+    </ul>
+  </div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>
