@@ -1,8 +1,10 @@
 # 🎓 EduSpace - Dashboard Escolar Moderno
 
-Um **dashboard educacional interativo e moderno** desenvolvido com HTML, CSS e JavaScript puro. Oferece uma experiência de usuário premium para alunos gerenciarem suas atividades acadêmicas.
+- [Acesse online!]()
+  Um **dashboard educacional interativo e moderno** desenvolvido com HTML, CSS e JavaScript puro. Oferece uma experiência de usuário premium para alunos gerenciarem suas atividades acadêmicas.
 
 ## 📋 Índice
+
 - [Visão Geral](#visão-geral)
 - [Funcionalidades](#funcionalidades)
 - [Estrutura do Projeto](#estrutura-do-projeto)
@@ -17,6 +19,7 @@ Um **dashboard educacional interativo e moderno** desenvolvido com HTML, CSS e J
 ## 🌟 Visão Geral
 
 **EduSpace** é uma plataforma educacional completa que oferece aos alunos uma interface intuitiva e moderna para:
+
 - Acompanhar mensagens e comunicados
 - Gerenciar faltas e presença
 - Organizar tarefas por status
@@ -24,6 +27,7 @@ Um **dashboard educacional interativo e moderno** desenvolvido com HTML, CSS e J
 - Acessar materiais de estudo
 
 ### Características Principais
+
 ✨ **Design Moderno** com Glassmorphism e efeitos Neon  
 ⚡ **Interativo** com animações suaves e feedback visual  
 📱 **Responsivo** adaptado para diferentes tamanhos de tela  
@@ -35,9 +39,11 @@ Um **dashboard educacional interativo e moderno** desenvolvido com HTML, CSS e J
 ## 🎯 Funcionalidades
 
 ### 1. **HOME - Dashboard Principal**
+
 Dashboard interativo com 4 cards principais:
 
 #### 📧 Card de Mensagens
+
 - Exibe **13 mensagens** não lidas
 - Modal com lista de mensagens recebidas
 - Cada mensagem mostra:
@@ -48,6 +54,7 @@ Dashboard interativo com 4 cards principais:
 - Efeito hover com elevação e brilho
 
 #### ⚠️ Card de Faltas
+
 - Mostra **5 faltas** neste mês
 - Modal detalhado com:
   - Porcentagem de presença (92%)
@@ -57,17 +64,20 @@ Dashboard interativo com 4 cards principais:
 - Cores visuais: verde (bom), amarelo (aviso), vermelho (crítico)
 
 #### 📋 Card de Tarefas
+
 - Exibe **4 tarefas** pendentes
 - Clique redireciona para aba de tarefas
 - Integração suave com navegação SPA
 
 #### 🎯 Card de Desempenho
+
 - Status com emoji (😊 Bom)
 - Média geral: **8.1**
 - Modal com resumo de notas por disciplina
 - Gráfico visual comparativo
 
 **Microinterações:**
+
 - ✅ Animação de contagem nos números (0 → valor)
 - ✅ Ripple effect ao clicar
 - ✅ Shimmer efeito nos cards
@@ -77,6 +87,7 @@ Dashboard interativo com 4 cards principais:
 ---
 
 ### 2. **MATERIAIS - Hub de Recursos**
+
 Acesso a 5 plataformas educacionais:
 
 - 📚 **Alura** - Plataforma de cursos online
@@ -86,6 +97,7 @@ Acesso a 5 plataformas educacionais:
 - 🧮 **Matfic** - Matemática interativa
 
 **Layout:**
+
 - Grid 2 colunas responsivo
 - Cards grandes com ícones neon
 - Último card centralizado
@@ -94,6 +106,7 @@ Acesso a 5 plataformas educacionais:
 ---
 
 ### 3. **NOTAS - Acompanhamento Acadêmico**
+
 Visualização de notas em **12 disciplinas**:
 
 - Arte (9.4)
@@ -110,6 +123,7 @@ Visualização de notas em **12 disciplinas**:
 - Tecnologia e Inovação (8.2)
 
 **Por Card:**
+
 - ✨ Barra de progresso animada
 - 🎯 Status colorido: Bom (verde), OK (amarelo), Precisa Melhorar (vermelho)
 - 📊 Última avaliação exibida
@@ -118,20 +132,24 @@ Visualização de notas em **12 disciplinas**:
 ---
 
 ### 4. **TAREFAS - Gerenciador Completo**
+
 Interface profissional para gerenciar tarefas escolares:
 
 #### Organização por Status
+
 - **Pendentes** (4 tarefas)
 - **Em Andamento** (2 tarefas)
 - **Concluídas** (2 tarefas)
 
 #### Funcionalidades
+
 - 🔍 **Filtro por Matéria** (11 opções)
 - 📑 **Abas Dinâmicas** com ícones ionicons
 - 📊 **Grid Responsivo** com animações
 - 🎯 **Indicador de Dificuldade** (Fácil/Médio/Difícil)
 
 #### Cada Card de Tarefa Contém
+
 - Título da tarefa
 - Nome do professor
 - Tag de matéria (colorida)
@@ -140,7 +158,9 @@ Interface profissional para gerenciar tarefas escolares:
 - Barra de progresso
 
 #### Ao Clicar em Uma Tarefa
+
 Abre painel detalhado com:
+
 - **Enunciado Completo** da tarefa
 - **Informações:**
   - Professor responsável
@@ -149,6 +169,7 @@ Abre painel detalhado com:
   - Nível de dificuldade
 
 ##### Tipos de Questões
+
 1. **Múltipla Escolha:**
    - 4 opções (A, B, C, D)
    - Feedback instantâneo (verde/vermelho)
@@ -160,6 +181,7 @@ Abre painel detalhado com:
    - Feedback visual
 
 ##### Envio de Resposta
+
 - ⭐ Animação de envio "pulsing"
 - ✅ Barra de progresso animada
 - 📬 Mensagem de confirmação
@@ -168,6 +190,7 @@ Abre painel detalhado com:
 ---
 
 ### 5. **BOLETIM - Notas Consolidadas**
+
 Tabela com **12 disciplinas** e notas:
 
 - Visualização clara em tabela
@@ -178,7 +201,9 @@ Tabela com **12 disciplinas** e notas:
 ---
 
 ### 6. **AGENDA - Eventos Importante**
+
 Lista de compromissos escolares:
+
 - 📌 Prova - 30/03
 - 📌 Trabalho - 05/04
 
@@ -195,6 +220,7 @@ Sala do futuro V2/
 ```
 
 **Tamanho Total:**
+
 - HTML: ~900 linhas
 - CSS: ~900 linhas
 - JavaScript: ~300 linhas
@@ -204,11 +230,13 @@ Sala do futuro V2/
 ## 🚀 Como Usar
 
 ### Abrir o Projeto
+
 1. Navegue até a pasta `Sala do futuro V2`
 2. Abra `index.html` em seu navegador
 3. Todos os recursos carregarão automaticamente
 
 ### Navegar Entre Abas
+
 - Clique nos itens da **sidebar esquerda**:
   - 🏠 Home
   - 📚 Materiais
@@ -218,11 +246,13 @@ Sala do futuro V2/
   - 📅 Agenda
 
 ### Interagir com Modais
+
 - **Home:** Clique nos 4 cards para abrir modais
 - **Tarefas:** Clique em um card de tarefa para abrir detalhes
 - **Fechar:** ESC ou clique no botão X
 
 ### Filtrar Tarefas
+
 - Na aba Tarefas, use o seletor "Filtrar por Matéria"
 - As tarefas filtram em tempo real
 
@@ -231,15 +261,18 @@ Sala do futuro V2/
 ## 🛠️ Tecnologias
 
 ### Linguagens
+
 - **HTML5** - Estrutura semântica
 - **CSS3** - Estilos modernos com animações
 - **JavaScript Vanilla** - Lógica sem dependências
 
 ### Bibliotecas Externas
+
 - **Ionicons 7.1.0** - Biblioteca de ícones
   - CDN: `https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js`
 
 ### Técnicas Utilizadas
+
 - ✨ **Glassmorphism** - Cards com fundo translúcido
 - 🌈 **Gradientes Neon** - Cores azul-ciano (#00f7ff)
 - 📱 **Grid Responsivo** - `auto-fit, minmax()`
@@ -252,7 +285,9 @@ Sala do futuro V2/
 ## 📄 Arquivo por Arquivo
 
 ### `index.html`
+
 Estrutura completa com:
+
 - **Sidebar** com navegação
 - **Painel HOME** com 4 cards + 3 modais
 - **Painel MATERIAIS** com 5 links
@@ -263,7 +298,9 @@ Estrutura completa com:
 - **Scripts & Ionicons** carregados ao final
 
 ### `style.css`
+
 Componentes principais:
+
 ```
 - Variáveis globais (background, cores)
 - Sidebar styling (width: 220px)
@@ -276,7 +313,9 @@ Componentes principais:
 ```
 
 ### `script.js`
+
 Funcionalidades:
+
 ```
 - animateValue() → Anima números de 0 ao valor final
 - updateHomeDate() → Atualiza data dinâmica
@@ -293,6 +332,7 @@ Funcionalidades:
 ## 🎨 Recursos Visuais
 
 ### Paleta de Cores
+
 - **Fundo Principal:** `#0f172a` (azul-escuro)
 - **Gradiente:** `135deg #0f172a → #1e293b`
 - **Neon Primária:** `#00f7ff` (azul-ciano)
@@ -303,6 +343,7 @@ Funcionalidades:
   - Vermelho: `#f87171` (erro)
 
 ### Ícones Ionicons Utilizados
+
 - `home-outline` - Home
 - `library-outline` - Materiais
 - `book-outline` - Notas
@@ -315,6 +356,7 @@ Funcionalidades:
 - E mais...
 
 ### Animações
+
 - **popIn** - Cards aparecem com scale
 - **slideDown** - Header desce suavemente
 - **slideUp** - Modais sobem ao abrir
@@ -327,6 +369,7 @@ Funcionalidades:
 ## 🔮 Futuras Melhorias
 
 ### Curto Prazo
+
 - [ ] Integração com API de backend
 - [ ] Autenticação de usuário (login)
 - [ ] Sistema de notificações push
@@ -334,6 +377,7 @@ Funcionalidades:
 - [ ] Mais gráficos de desempenho (Chart.js)
 
 ### Médio Prazo
+
 - [ ] Perfil do aluno editável
 - [ ] Sistema de streaks (dias estudando)
 - [ ] Gamificação (XP, medalhas, ranking)
@@ -341,6 +385,7 @@ Funcionalidades:
 - [ ] Agenda sincronizada com calendário
 
 ### Longo Prazo
+
 - [ ] App mobile (React Native/Flutter)
 - [ ] Sistema de avaliação por pares
 - [ ] Integração com plataformas externas
@@ -352,24 +397,28 @@ Funcionalidades:
 ## 📝 Notas de Desenvolvimento
 
 ### Performance
+
 - Sem bibliotecas pesadas (apenas Ionicons)
 - CSS otimizado com flexbox/grid
 - JavaScript sem loops desnecessários
 - Animações em CSS (não JS)
 
 ### Acessibilidade
+
 - Estrutura HTML semântica
 - ARIA labels onde necessário
 - Contraste suficiente de cores
 - Keyboard navigation (ESC para fechar modais)
 
 ### Responsividade
+
 - Mobile-first approach
 - Grid auto-fit para adaptação
 - Sidebar colapsável em small screens (preparado)
 - Modais 90% width em mobile
 
 ### Browser Support
+
 - Chrome/Edge 90+
 - Firefox 88+
 - Safari 14+
@@ -392,14 +441,17 @@ Este projeto é fornecido como-é para fins educacionais.
 ## 💡 Dicas e Truques
 
 ### Dica 1: Temas
+
 Todos os cores neon podem ser alteradas em `style.css`. Procure por `#00f7ff` para mudar a cor primária.
 
 ### Dica 2: Adicionar Nova Matéria
+
 1. Vá para seção **NOTAS** em `index.html`
 2. Copie um `<article class="note-card">` existente
 3. Altere `data-progress`, `data-status`, e textos
 
 ### Dica 3: Personalizar Mensagens
+
 No `script.js`, procure por `tarefasData = {...}` e adicione mais objetos com dados de tarefas.
 
 ---
@@ -407,14 +459,17 @@ No `script.js`, procure por `tarefasData = {...}` e adicione mais objetos com da
 ## 🆘 Troubleshooting
 
 ### Ícones não aparecem?
+
 - Verifique conexão com internet (Ionicons vem de CDN)
 - Abra console (F12) e procure por erros
 
 ### Modais não abrem?
+
 - Verifique se JavaScript está habilitado
 - Procure por erros no console (F12)
 
 ### Animações lentas?
+
 - Pode ser performance do navegador
 - Tente fechar outras abas
 - Limpe cache (Ctrl+Shift+Delete)
