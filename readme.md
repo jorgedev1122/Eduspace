@@ -1,6 +1,6 @@
 # 🎓 EduSpace - Dashboard Escolar Moderno
 
-- [Acesse online!]()
+- [Acesse online!](https://jorgedev1122.github.io/Eduspace/)
   Um **dashboard educacional interativo e moderno** desenvolvido com HTML, CSS e JavaScript puro. Oferece uma experiência de usuário premium para alunos gerenciarem suas atividades acadêmicas.
 
 ## 📋 Índice
